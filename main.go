@@ -11,10 +11,12 @@ import (
 func main() {
 	// breadthFirth call crwal for each item in the worklist
 	// os.Args[1:] is the initial worklist
-	var breadth uint
-	flag.UintVar(&breadth, "b", 3,  "广度优先搜索的广度")
+	var (
+		breadth  = flag.Uint("b", 3,  "广度优先搜索的广度")
+	)
+	flag.Parse()
 
-	breadthFirth(crwal, os.Args[1:], breadth)
+	breadthFirth(crwal, os.Args[1:], *breadth)
 }
 
 // breadthFirth encapsulates the essence of a bradth-first traversal
